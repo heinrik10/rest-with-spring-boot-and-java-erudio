@@ -1,4 +1,4 @@
-package br.com.otavio.restwithspringbootandjavaerudio;
+package br.com.otavio.restwithspringbootandjavaerudio.models;
 
 import lombok.Data;
 
