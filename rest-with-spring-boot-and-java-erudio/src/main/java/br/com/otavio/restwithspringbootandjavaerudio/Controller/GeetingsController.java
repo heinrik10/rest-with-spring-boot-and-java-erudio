@@ -12,11 +12,11 @@ import java.util.concurrent.atomic.AtomicLong;
 @RequestMapping("/greetings")
 public class GeetingsController {
 
-    private final String template = "Hello, %s!";
     private final AtomicLong counter = new AtomicLong();
 
     @GetMapping("/hello")
     public Greetings greetings(@RequestParam(value = "name", defaultValue = "World") String name){
+        String template = "Hello, %s!";
         return new Greetings(counter.incrementAndGet(), String.format(template, name));
     }
 }

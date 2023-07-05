@@ -3,13 +3,11 @@ package br.com.otavio.restwithspringbootandjavaerudio.Controller;
 import br.com.otavio.restwithspringbootandjavaerudio.Dto.PersonDTO;
 import br.com.otavio.restwithspringbootandjavaerudio.Models.PersonModel;
 import br.com.otavio.restwithspringbootandjavaerudio.Services.PersonService;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/person")
