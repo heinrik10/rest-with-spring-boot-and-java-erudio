@@ -1,4 +1,4 @@
-package br.com.otavio.restwithspringbootandjavaerudio.exceptions;
+package br.com.otavio.restwithspringbootandjavaerudio.Exceptions;
 
 import lombok.Getter;
 

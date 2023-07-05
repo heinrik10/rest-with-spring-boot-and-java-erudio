@@ -1,6 +1,6 @@
-package br.com.otavio.restwithspringbootandjavaerudio.validators;
+package br.com.otavio.restwithspringbootandjavaerudio.Validators;
 
-import br.com.otavio.restwithspringbootandjavaerudio.exceptions.MathValidationException;
+import br.com.otavio.restwithspringbootandjavaerudio.Exceptions.ResourceNotFoundException;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -11,13 +11,13 @@ public class MathValidator {
 
     public void validateCalculatorValues(ArrayList<Double> listNumbers) {
         if (Objects.isNull(listNumbers) || listNumbers.isEmpty()){
-            throw new MathValidationException("List is null or empty");
+            throw new ResourceNotFoundException("List is null or empty");
         }
     }
 
     public void validateDivide(Double value) {
         if (value < 0){
-            throw new MathValidationException("Value is below 0");
+            throw new ResourceNotFoundException("Value is below 0");
         }
     }
 }

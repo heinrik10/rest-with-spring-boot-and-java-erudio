@@ -1,6 +1,6 @@
-package br.com.otavio.restwithspringbootandjavaerudio.controllers;
+package br.com.otavio.restwithspringbootandjavaerudio.Controller;
 
-import br.com.otavio.restwithspringbootandjavaerudio.models.Greetings;
+import br.com.otavio.restwithspringbootandjavaerudio.Models.Greetings;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;

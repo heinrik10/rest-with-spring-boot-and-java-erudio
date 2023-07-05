@@ -1,6 +1,6 @@
-package br.com.otavio.restwithspringbootandjavaerudio.services;
+package br.com.otavio.restwithspringbootandjavaerudio.Services;
 
-import br.com.otavio.restwithspringbootandjavaerudio.validators.MathValidator;
+import br.com.otavio.restwithspringbootandjavaerudio.Validators.MathValidator;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
