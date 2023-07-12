@@ -1,10 +1,10 @@
-package br.com.otavio.restwithspringbootandjavaerudio.Dto;
+package br.com.otavio.restwithspringbootandjavaerudio.VO;
 
 import br.com.otavio.restwithspringbootandjavaerudio.Enum.Gender;
 import lombok.Data;
 
 @Data
-public class PersonDTO {
+public class PersonVO {
 
     private String firstName;
     private String lastName;
