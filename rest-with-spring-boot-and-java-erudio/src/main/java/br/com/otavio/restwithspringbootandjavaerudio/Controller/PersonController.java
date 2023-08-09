@@ -3,7 +3,7 @@ package br.com.otavio.restwithspringbootandjavaerudio.Controller;
 import br.com.otavio.restwithspringbootandjavaerudio.Enum.Gender;
 import br.com.otavio.restwithspringbootandjavaerudio.Models.PersonModel;
 import br.com.otavio.restwithspringbootandjavaerudio.Services.PersonService;
-import br.com.otavio.restwithspringbootandjavaerudio.VO.PersonVOv1;
+import br.com.otavio.restwithspringbootandjavaerudio.VO.PersonVO;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -23,13 +23,13 @@ public class PersonController {
 
     @GetMapping(value = "/{id}",
             produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE, APPLICATION_YAML})
-    public ResponseEntity<PersonVOv1> findById(@PathVariable Long id) {
+    public ResponseEntity<PersonVO> findById(@PathVariable Long id) {
         return ResponseEntity.ok(personService.findById(id));
     }
 
     @GetMapping(value = "/gender",
             produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE, APPLICATION_YAML})
-    public ResponseEntity<List<PersonVOv1>> findByGender(@RequestParam Gender gender) {
+    public ResponseEntity<List<PersonVO>> findByGender(@RequestParam Gender gender) {
         return ResponseEntity.ok(personService.findByGender(gender));
     }
 
@@ -42,15 +42,15 @@ public class PersonController {
             produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE, APPLICATION_YAML},
             consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE, APPLICATION_YAML}
     )
-    public ResponseEntity<PersonVOv1> createNewPerson(@RequestBody PersonVOv1 personVOv1) {
-        return ResponseEntity.ok(personService.createNewPerson(personVOv1));
+    public ResponseEntity<PersonVO> createNewPerson(@RequestBody PersonVO personVO) {
+        return ResponseEntity.ok(personService.createNewPerson(personVO));
     }
 
     @PutMapping(value = "/{id}",
             consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE, APPLICATION_YAML},
             produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE, APPLICATION_YAML})
-    public ResponseEntity<PersonVOv1> updatePerson(@PathVariable Long id, @RequestBody PersonVOv1 personVOv1) {
-        return ResponseEntity.ok(personService.updatePerson(id, personVOv1));
+    public ResponseEntity<PersonVO> updatePerson(@PathVariable Long id, @RequestBody PersonVO personVO) {
+        return ResponseEntity.ok(personService.updatePerson(id, personVO));
     }
 
     @DeleteMapping(value = "/{id}")

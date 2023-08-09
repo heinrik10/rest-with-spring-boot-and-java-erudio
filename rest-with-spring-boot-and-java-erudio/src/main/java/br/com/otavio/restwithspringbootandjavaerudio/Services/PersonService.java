@@ -1,7 +1,7 @@
 package br.com.otavio.restwithspringbootandjavaerudio.Services;
 
 import br.com.otavio.restwithspringbootandjavaerudio.Mapper.PersonMapper;
-import br.com.otavio.restwithspringbootandjavaerudio.VO.PersonVOv1;
+import br.com.otavio.restwithspringbootandjavaerudio.VO.PersonVO;
 import br.com.otavio.restwithspringbootandjavaerudio.Enum.Gender;
 import br.com.otavio.restwithspringbootandjavaerudio.Exceptions.ResourceNotFoundException;
 import br.com.otavio.restwithspringbootandjavaerudio.Models.PersonModel;
@@ -21,13 +21,13 @@ public class PersonService {
     }
 
 
-    public PersonVOv1 findById(Long id){
+    public PersonVO findById(Long id){
         logger.info("Finding a new person");
         return PersonMapper.INSTANCE.personModelToPersonVO(personRepository.findById(id).
                 orElseThrow(() -> new ResourceNotFoundException("No records found for this ID")));
     }
 
-    public List<PersonVOv1> findByGender(Gender gender){
+    public List<PersonVO> findByGender(Gender gender){
         logger.info("Finding a person");
         return PersonMapper.INSTANCE.listPersonModelToListPersonVO(personRepository.findPersonByGender(gender));
     }
@@ -38,22 +38,22 @@ public class PersonService {
         return personRepository.findAll();
     }
 
-    public PersonVOv1 createNewPerson(PersonVOv1 personVOv1) {
+    public PersonVO createNewPerson(PersonVO personVO) {
         logger.info("Creating a new person");
 
-        var entity = PersonMapper.INSTANCE.personVOToPersonModel(personVOv1);
+        var entity = PersonMapper.INSTANCE.personVOToPersonModel(personVO);
 
         return PersonMapper.INSTANCE.personModelToPersonVO(personRepository.save(entity));
     }
 
-    public PersonVOv1 updatePerson(Long id, PersonVOv1 updatedPersonVOv1) {
+    public PersonVO updatePerson(Long id, PersonVO updatedPersonVO) {
         logger.info("Updating a person");
         var person = personRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("No records found for this ID"));
-        person.setFirstName(updatedPersonVOv1.getFirstName());
-        person.setLastName(updatedPersonVOv1.getLastName());
-        person.setAddress(updatedPersonVOv1.getAddress());
-        person.setGender(updatedPersonVOv1.getGender());
+        person.setFirstName(updatedPersonVO.getFirstName());
+        person.setLastName(updatedPersonVO.getLastName());
+        person.setAddress(updatedPersonVO.getAddress());
+        person.setGender(updatedPersonVO.getGender());
 
         return PersonMapper.INSTANCE.personModelToPersonVO(personRepository.save(person));
     }
