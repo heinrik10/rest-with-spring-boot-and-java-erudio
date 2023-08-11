@@ -1,7 +1,6 @@
 package br.com.otavio.restwithspringbootandjavaerudio.Controller;
 
 import br.com.otavio.restwithspringbootandjavaerudio.Enum.Gender;
-import br.com.otavio.restwithspringbootandjavaerudio.Models.PersonModel;
 import br.com.otavio.restwithspringbootandjavaerudio.Services.PersonService;
 import br.com.otavio.restwithspringbootandjavaerudio.VO.PersonVO;
 import org.springframework.http.MediaType;
@@ -34,7 +33,7 @@ public class PersonController {
     }
 
     @GetMapping(produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE, APPLICATION_YAML})
-    public ResponseEntity<List<PersonModel>> findAll() {
+    public ResponseEntity<List<PersonVO>> findAll() {
         return ResponseEntity.ok(personService.findAll());
     }
 
