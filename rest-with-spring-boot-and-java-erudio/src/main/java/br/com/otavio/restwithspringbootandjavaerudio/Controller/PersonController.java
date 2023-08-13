@@ -3,6 +3,7 @@ package br.com.otavio.restwithspringbootandjavaerudio.Controller;
 import br.com.otavio.restwithspringbootandjavaerudio.Enum.Gender;
 import br.com.otavio.restwithspringbootandjavaerudio.Services.PersonService;
 import br.com.otavio.restwithspringbootandjavaerudio.VO.PersonVO;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,6 +14,7 @@ import static br.com.otavio.restwithspringbootandjavaerudio.Util.MediaType.APPLI
 
 @RestController
 @RequestMapping("/api/v1/person")
+@Tag(name = "People", description = "Endpoints for Managing People")
 public class PersonController {
 
     private final PersonService personService;
