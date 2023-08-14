@@ -7,17 +7,17 @@ import java.util.List;
 import br.com.otavio.restwithspringbootandjavaerudio.Enum.Gender;
 import br.com.otavio.restwithspringbootandjavaerudio.Mapper.PersonMapper;
 import br.com.otavio.restwithspringbootandjavaerudio.Models.PersonModel;
-import br.com.otavio.restwithspringbootandjavaerudio.UnitTests.Mapper.Mocks.MockPersonModel;
+import br.com.otavio.restwithspringbootandjavaerudio.UnitTests.Mapper.Mocks.MockPerson;
 import br.com.otavio.restwithspringbootandjavaerudio.VO.PersonVO;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-public class DozerConverterTest {
+public class PersonMapperTest {
     
-    MockPersonModel inputObject;
+    MockPerson inputObject;
 
     @BeforeEach
     public void setUp() {
-        inputObject = new MockPersonModel();
+        inputObject = new MockPerson();
     }
 
     @Test

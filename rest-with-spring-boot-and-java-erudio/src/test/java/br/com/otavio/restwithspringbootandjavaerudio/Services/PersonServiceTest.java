@@ -4,7 +4,7 @@ import br.com.otavio.restwithspringbootandjavaerudio.Enum.Gender;
 import br.com.otavio.restwithspringbootandjavaerudio.Exceptions.ResourceNotFoundException;
 import br.com.otavio.restwithspringbootandjavaerudio.Mapper.PersonMapper;
 import br.com.otavio.restwithspringbootandjavaerudio.Repository.PersonRepository;
-import br.com.otavio.restwithspringbootandjavaerudio.UnitTests.Mapper.Mocks.MockPersonModel;
+import br.com.otavio.restwithspringbootandjavaerudio.UnitTests.Mapper.Mocks.MockPerson;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -24,7 +24,7 @@ import static org.mockito.Mockito.when;
 @ExtendWith(MockitoExtension.class)
 class PersonServiceTest {
 
-    MockPersonModel input;
+    MockPerson input;
 
     @InjectMocks
     private PersonService service;
@@ -34,7 +34,7 @@ class PersonServiceTest {
 
     @BeforeEach
     void setUoMocks() {
-        input = new MockPersonModel();
+        input = new MockPerson();
         MockitoAnnotations.openMocks(PersonServiceTest.class);
     }
 
@@ -44,7 +44,6 @@ class PersonServiceTest {
         when(repository.findById(1L)).thenReturn(Optional.of(person));
         var response = service.findById(1L);
 
-        assertEquals(1L, person.getId());
         assertEquals(person.getAddress(), response.getAddress());
         assertEquals(person.getFirstName(), response.getFirstName());
         assertEquals(person.getLastName(), response.getLastName());
@@ -61,7 +60,6 @@ class PersonServiceTest {
 
         assertFalse(response.isEmpty());
         for (var p : response) {
-            assertEquals(1L, person.getId());
             assertEquals(person.getAddress(), p.getAddress());
             assertEquals(person.getFirstName(), p.getFirstName());
             assertEquals(person.getLastName(), p.getLastName());
@@ -80,7 +78,6 @@ class PersonServiceTest {
 
         assertFalse(response.isEmpty());
         for (var p : response) {
-            assertEquals(1L, person.getId());
             assertEquals(person.getAddress(), p.getAddress());
             assertEquals(person.getFirstName(), p.getFirstName());
             assertEquals(person.getLastName(), p.getLastName());
@@ -91,7 +88,7 @@ class PersonServiceTest {
     @Test
     void createNewPerson() {
         var person = input.mockEntity(1);
-        person.setId(null); //necessário pois a aplicação cria um id para a pessoa
+        person.setId(null); //necessário pois a aplicação cria um id
         when(repository.save(person)).thenReturn(person);
         var vo = PersonMapper.INSTANCE.personModelToPersonVO(person);
         var response = service.createNewPerson(vo);

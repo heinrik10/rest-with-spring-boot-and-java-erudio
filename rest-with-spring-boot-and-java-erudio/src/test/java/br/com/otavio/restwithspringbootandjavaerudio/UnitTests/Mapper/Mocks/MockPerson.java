@@ -7,7 +7,7 @@ import br.com.otavio.restwithspringbootandjavaerudio.VO.PersonVO;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MockPersonModel {
+public class MockPerson {
 
 
     public PersonModel mockEntity() {
@@ -19,7 +19,7 @@ public class MockPersonModel {
     }
     
     public List<PersonModel> mockEntityList() {
-        List<PersonModel> persons = new ArrayList<PersonModel>();
+        List<PersonModel> persons = new ArrayList<>();
         for (int i = 0; i < 14; i++) {
             persons.add(mockEntity(i));
         }

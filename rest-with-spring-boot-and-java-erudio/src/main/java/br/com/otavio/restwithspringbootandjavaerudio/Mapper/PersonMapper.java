@@ -1,6 +1,5 @@
 package br.com.otavio.restwithspringbootandjavaerudio.Mapper;
 
-
 import br.com.otavio.restwithspringbootandjavaerudio.Models.PersonModel;
 import br.com.otavio.restwithspringbootandjavaerudio.VO.PersonVO;
 import org.mapstruct.Mapper;
@@ -10,7 +9,6 @@ import java.util.List;
 
 @Mapper
 public interface PersonMapper {
-
     PersonMapper INSTANCE = Mappers.getMapper(PersonMapper.class);
 
     PersonVO personModelToPersonVO(PersonModel personModel);
